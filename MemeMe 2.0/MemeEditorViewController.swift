@@ -29,6 +29,7 @@ class MemeEditorViewController: UIViewController {
     var keyboardIsShown: Bool = false
     
     var meme: Meme?
+    var currentMemedImage: UIImage?
     
     
     // MARK: ViewController lifecycle
@@ -144,7 +145,7 @@ class MemeEditorViewController: UIViewController {
             if !completed {
                 return
             } else {
-                self.save(_topText: self.textFieldTop.text ?? "", _bottomText: self.textFieldBottom.text ?? "", _originalImage: self.imageView.image!, _memedImage: currentMemedImage)
+                self.save()
                 return
             }
         }
@@ -166,9 +167,12 @@ class MemeEditorViewController: UIViewController {
         return memedImage
     }
     
-    func save(_topText: String, _bottomText: String, _originalImage: UIImage, _memedImage: UIImage){
-        self.meme = Meme(topText: _topText, bottomText: _bottomText, originalImage: _originalImage, memedImage: _memedImage)
-        print(self.meme!.bottomText)
+    func save() {
+        self.meme = Meme(topText: self.textFieldTop.text ?? "", bottomText: self.textFieldBottom.text ?? "", originalImage: self.imageView.image!, memedImage: self.currentMemedImage!)
+        // save meme in shared model
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(self.meme!)
     }
 }
 
