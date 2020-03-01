@@ -136,8 +136,8 @@ class MemeEditorViewController: UIViewController {
     }
     
     @IBAction func shareMemeButtonClick(_ sender: Any) {
-        let currentMemedImage = generateMemedImage()
-        let imageToShare = [ currentMemedImage ]
+        self.currentMemedImage = generateMemedImage()
+        let imageToShare = [ self.currentMemedImage ]
         let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
         
         activityViewController.completionWithItemsHandler = {
@@ -168,7 +168,8 @@ class MemeEditorViewController: UIViewController {
     }
     
     func save() {
-        self.meme = Meme(topText: self.textFieldTop.text ?? "", bottomText: self.textFieldBottom.text ?? "", originalImage: self.imageView.image!, memedImage: self.currentMemedImage!)
+        self.meme = Meme(topText: self.textFieldTop.text ?? "", bottomText: self.textFieldBottom.text ?? "",
+                         originalImage: self.imageView.image!, memedImage: self.currentMemedImage!)
         // save meme in shared model
         let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
