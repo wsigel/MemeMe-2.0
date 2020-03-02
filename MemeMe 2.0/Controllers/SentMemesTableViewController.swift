@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class SentMemesTableViewController: UITableViewController {
-    
+
     var memes: [Meme]! {
         let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
@@ -29,13 +29,13 @@ class SentMemesTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let memeDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        let meme = appDelegate.memes[indexPath.row]
+        memeDetailVC.meme = meme
+        self.navigationController!.pushViewController(memeDetailVC, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
