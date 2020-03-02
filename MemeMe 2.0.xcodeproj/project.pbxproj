@@ -66,18 +66,33 @@
 		6A36866C23EC8E1F0053EFDA /* MemeMe 2.0 */ = {
 			isa = PBXGroup;
 			children = (
+				6AB57834240D92DC00503EDB /* Views */,
+				6AB57833240D92C200503EDB /* Models */,
 				6AE5F8D7240C3A5000C32ED3 /* Controllers */,
 				6ADFAC0F23F47F89008E7265 /* Delegates */,
 				6A36866D23EC8E1F0053EFDA /* AppDelegate.swift */,
 				6A36866F23EC8E1F0053EFDA /* SceneDelegate.swift */,
-				6A36867123EC8E1F0053EFDA /* MemeEditorViewController.swift */,
-				6A36867323EC8E1F0053EFDA /* Main.storyboard */,
 				6A36867623EC8E200053EFDA /* Assets.xcassets */,
-				6A36867823EC8E200053EFDA /* LaunchScreen.storyboard */,
 				6A36867B23EC8E200053EFDA /* Info.plist */,
-				6AD1A25523F856D000C52FF9 /* MemeStructs.swift */,
 			);
 			path = "MemeMe 2.0";
+			sourceTree = "<group>";
+		};
+		6AB57833240D92C200503EDB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6AD1A25523F856D000C52FF9 /* MemeStructs.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6AB57834240D92DC00503EDB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6A36867323EC8E1F0053EFDA /* Main.storyboard */,
+				6A36867823EC8E200053EFDA /* LaunchScreen.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		6ADFAC0F23F47F89008E7265 /* Delegates */ = {
@@ -92,6 +107,7 @@
 		6AE5F8D7240C3A5000C32ED3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				6A36867123EC8E1F0053EFDA /* MemeEditorViewController.swift */,
 				6AE5F8D8240C3A7900C32ED3 /* SentMemesTableViewController.swift */,
 				6AB57831240D805700503EDB /* MemeDetailViewController.swift */,
 			);
