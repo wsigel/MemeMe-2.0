@@ -38,6 +38,10 @@ class SentMemesTableViewController: UITableViewController {
         self.navigationController!.pushViewController(memeDetailVC, animated: true)
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()

@@ -43,17 +43,11 @@ class SentMemeCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        sentMemesFlowLayout.itemSize = CGSize(width: collectionView.bounds.width / 2, height: 200)
+        sentMemesFlowLayout.minimumInteritemSpacing = 0
+        sentMemesFlowLayout.minimumLineSpacing = 0
+        self.collectionView.collectionViewLayout = sentMemesFlowLayout
+        print("Breite \(collectionView.bounds.width) Höhe \(collectionView.bounds.height)")
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        let space: CGFloat = 1.0
-        let dimension = (view.frame.size.width - (2 * space)) / 4.0
-        sentMemesFlowLayout.minimumInteritemSpacing = space
-        sentMemesFlowLayout.minimumLineSpacing = space
-        
-        sentMemesFlowLayout.itemSize = CGSize(width: dimension, height: dimension)
-        collectionView.collectionViewLayout = sentMemesFlowLayout
-    }
 }
