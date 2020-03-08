@@ -39,7 +39,7 @@ class SentMemesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 170
     }
     
     override func viewWillAppear(_ animated: Bool) {

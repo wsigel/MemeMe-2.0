@@ -25,7 +25,7 @@ class SentMemeCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        Helper.showDetailView(indexPath: indexPath, parent: self)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -43,11 +43,22 @@ class SentMemeCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sentMemesFlowLayout.itemSize = CGSize(width: collectionView.bounds.width / 2, height: 200)
+        let insets = UIEdgeInsets(top: 20, left: 25, bottom: 20, right: 25)
+        sentMemesFlowLayout.sectionInset = insets
+        sentMemesFlowLayout.itemSize = CGSize(width: 170, height: 170)
         sentMemesFlowLayout.minimumInteritemSpacing = 0
         sentMemesFlowLayout.minimumLineSpacing = 0
         self.collectionView.collectionViewLayout = sentMemesFlowLayout
+        self.collectionView.collectionViewLayout.invalidateLayout()
         print("Breite \(collectionView.bounds.width) Höhe \(collectionView.bounds.height)")
     }
     
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isPortrait {
+            print("portrait")
+        }
+        else if UIDevice.current.orientation.isLandscape {
+            print("landscape")
+        }
+    }
 }

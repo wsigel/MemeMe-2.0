@@ -13,6 +13,7 @@
 		6A36867523EC8E1F0053EFDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A36867323EC8E1F0053EFDA /* Main.storyboard */; };
 		6A36867723EC8E200053EFDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A36867623EC8E200053EFDA /* Assets.xcassets */; };
 		6A36867A23EC8E200053EFDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A36867823EC8E200053EFDA /* LaunchScreen.storyboard */; };
+		6A4E3DA0241505DA0086A353 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4E3D9F241505DA0086A353 /* Helper.swift */; };
 		6A4F395B240ED05900BE0854 /* SentMemeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4F395A240ED05900BE0854 /* SentMemeCollectionViewController.swift */; };
 		6A4F395D240ED21D00BE0854 /* SentMemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A4F395C240ED21D00BE0854 /* SentMemeCollectionViewCell.swift */; };
 		6A4F395F240EE2F800BE0854 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6A4F395E240EE2F800BE0854 /* Default-568h@2x.png */; };
@@ -32,6 +33,7 @@
 		6A36867623EC8E200053EFDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A36867923EC8E200053EFDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6A36867B23EC8E200053EFDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6A4E3D9F241505DA0086A353 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		6A4F395A240ED05900BE0854 /* SentMemeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentMemeCollectionViewController.swift; sourceTree = "<group>"; };
 		6A4F395C240ED21D00BE0854 /* SentMemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentMemeCollectionViewCell.swift; sourceTree = "<group>"; };
 		6A4F395E240EE2F800BE0854 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				6A36866F23EC8E1F0053EFDA /* SceneDelegate.swift */,
 				6A36867623EC8E200053EFDA /* Assets.xcassets */,
 				6A36867B23EC8E200053EFDA /* Info.plist */,
+				6A4E3D9F241505DA0086A353 /* Helper.swift */,
 			);
 			path = "MemeMe 2.0";
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A4E3DA0241505DA0086A353 /* Helper.swift in Sources */,
 				6A4F395D240ED21D00BE0854 /* SentMemeCollectionViewCell.swift in Sources */,
 				6A36867223EC8E1F0053EFDA /* MemeEditorViewController.swift in Sources */,
 				6AE5F8D9240C3A7900C32ED3 /* SentMemesTableViewController.swift in Sources */,
