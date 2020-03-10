@@ -26,16 +26,12 @@ class SentMemesTableViewController: UITableViewController {
         let meme = self.memes[indexPath.row]
         cell.imageView?.image = meme.memedImage
         cell.textLabel?.text = meme.topText
+        cell.detailTextLabel?.text = meme.bottomText
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let memeDetailVC = self.storyboard?.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
-        let object = UIApplication.shared.delegate
-        let appDelegate = object as! AppDelegate
-        let meme = appDelegate.memes[indexPath.row]
-        memeDetailVC.meme = meme
-        self.navigationController!.pushViewController(memeDetailVC, animated: true)
+        Helper.showDetailView(indexPath: indexPath, parent: self)
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

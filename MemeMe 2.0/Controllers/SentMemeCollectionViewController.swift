@@ -32,7 +32,6 @@ class SentMemeCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SentMemeCell", for: indexPath) as! SentMemeCollectionViewCell
         let sentMeme = self.memes[indexPath.row]
         cell.SentMemeImageView.image = sentMeme.memedImage
-        //cell.SentMemeImageView.backgroundColor = UIColor.blue
         return cell
     }
     
@@ -43,14 +42,17 @@ class SentMemeCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureSentMemesFlowLayout()
+        self.collectionView.collectionViewLayout = sentMemesFlowLayout
+        self.collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
+    func configureSentMemesFlowLayout() {
         let insets = UIEdgeInsets(top: 20, left: 25, bottom: 20, right: 25)
         sentMemesFlowLayout.sectionInset = insets
         sentMemesFlowLayout.itemSize = CGSize(width: 170, height: 170)
         sentMemesFlowLayout.minimumInteritemSpacing = 0
         sentMemesFlowLayout.minimumLineSpacing = 0
-        self.collectionView.collectionViewLayout = sentMemesFlowLayout
-        self.collectionView.collectionViewLayout.invalidateLayout()
-        print("Breite \(collectionView.bounds.width) Höhe \(collectionView.bounds.height)")
     }
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
