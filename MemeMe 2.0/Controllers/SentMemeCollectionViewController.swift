@@ -38,29 +38,29 @@ class SentMemeCollectionViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.reloadData()
+        configureSentMemesFlowLayout()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureSentMemesFlowLayout()
-        self.collectionView.collectionViewLayout = sentMemesFlowLayout
-        self.collectionView.collectionViewLayout.invalidateLayout()
     }
+
     
     func configureSentMemesFlowLayout() {
-        let insets = UIEdgeInsets(top: 20, left: 25, bottom: 20, right: 25)
+        let numberOfColumns: CGFloat = 2.0
+        let insets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         sentMemesFlowLayout.sectionInset = insets
-        sentMemesFlowLayout.itemSize = CGSize(width: 170, height: 170)
-        sentMemesFlowLayout.minimumInteritemSpacing = 0
-        sentMemesFlowLayout.minimumLineSpacing = 0
-    }
-    
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        if UIDevice.current.orientation.isPortrait {
-            print("portrait")
-        }
-        else if UIDevice.current.orientation.isLandscape {
-            print("landscape")
-        }
+        sentMemesFlowLayout.scrollDirection = UICollectionView.ScrollDirection.vertical
+        sentMemesFlowLayout.minimumInteritemSpacing = 10
+        sentMemesFlowLayout.minimumLineSpacing = 10
+        sentMemesFlowLayout.sectionInsetReference = .fromContentInset
+        let insetsLeftAndRight = insets.left + insets.right
+        let minimumInterimSpacingTotal = sentMemesFlowLayout.minimumInteritemSpacing * (CGFloat)(numberOfColumns - 1)
+        let viewWidth = self.collectionView.contentSize.width //view.frame.size.width
+        let dimension = (viewWidth - (insetsLeftAndRight) - (minimumInterimSpacingTotal)) / numberOfColumns
+        sentMemesFlowLayout.itemSize = CGSize(width: dimension, height: dimension)
+        self.collectionView.collectionViewLayout = sentMemesFlowLayout
+        self.collectionView.collectionViewLayout.invalidateLayout()
+
     }
 }
