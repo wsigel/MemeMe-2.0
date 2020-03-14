@@ -133,6 +133,9 @@ class MemeEditorViewController: UIViewController {
         textFieldTop.text = "TOP"
         textFieldBottom.text = "BOTTOM"
         shareBarButtonItem.isEnabled = false
+        if let navigationController = self.navigationController {
+            navigationController.popViewController(animated: true)
+        }
     }
     
     @IBAction func shareMemeButtonClick(_ sender: Any) {
