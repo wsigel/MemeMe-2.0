@@ -138,7 +138,7 @@ class MemeEditorViewController: UIViewController {
     @IBAction func shareMemeButtonClick(_ sender: Any) {
         self.currentMemedImage = generateMemedImage()
         let imageToShare = [ self.currentMemedImage ]
-        let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+        let activityViewController = UIActivityViewController(activityItems: imageToShare as [Any], applicationActivities: nil)
         
         activityViewController.completionWithItemsHandler = {
             (activityType: UIActivity.ActivityType?, completed: Bool, arrayReturnedItems: [Any]?, error: Error?) in

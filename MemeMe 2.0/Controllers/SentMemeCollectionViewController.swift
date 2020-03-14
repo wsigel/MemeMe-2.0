@@ -39,28 +39,21 @@ class SentMemeCollectionViewController: UICollectionViewController {
         super.viewWillAppear(animated)
         collectionView.reloadData()
         configureSentMemesFlowLayout()
+        self.collectionView.collectionViewLayout.invalidateLayout()
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     
     func configureSentMemesFlowLayout() {
-        let numberOfColumns: CGFloat = 2.0
-        let insets = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-        sentMemesFlowLayout.sectionInset = insets
+        let numberOfColumns: CGFloat = 3.0
         sentMemesFlowLayout.scrollDirection = UICollectionView.ScrollDirection.vertical
-        sentMemesFlowLayout.minimumInteritemSpacing = 10
-        sentMemesFlowLayout.minimumLineSpacing = 10
-        sentMemesFlowLayout.sectionInsetReference = .fromContentInset
-        let insetsLeftAndRight = insets.left + insets.right
-        let minimumInterimSpacingTotal = sentMemesFlowLayout.minimumInteritemSpacing * (CGFloat)(numberOfColumns - 1)
-        let viewWidth = self.collectionView.contentSize.width //view.frame.size.width
-        let dimension = (viewWidth - (insetsLeftAndRight) - (minimumInterimSpacingTotal)) / numberOfColumns
-        sentMemesFlowLayout.itemSize = CGSize(width: dimension, height: dimension)
+        sentMemesFlowLayout.minimumInteritemSpacing = 2.0
+        sentMemesFlowLayout.minimumLineSpacing = 2.0
+        let minimumInterimSpacingTotal = sentMemesFlowLayout.minimumInteritemSpacing * (numberOfColumns - 1)
+        let viewWidth = view.frame.size.width
+        let widthDimension = (viewWidth - (minimumInterimSpacingTotal)) / numberOfColumns
+        let heightDimension = view.frame.size.height * widthDimension / view.frame.size.width
+        sentMemesFlowLayout.itemSize = CGSize(width: widthDimension, height: heightDimension)
         self.collectionView.collectionViewLayout = sentMemesFlowLayout
         self.collectionView.collectionViewLayout.invalidateLayout()
-
     }
+    
 }

@@ -83,7 +83,6 @@
 				6A36866F23EC8E1F0053EFDA /* SceneDelegate.swift */,
 				6A36867623EC8E200053EFDA /* Assets.xcassets */,
 				6A36867B23EC8E200053EFDA /* Info.plist */,
-				6A4E3D9F241505DA0086A353 /* Helper.swift */,
 			);
 			path = "MemeMe 2.0";
 			sourceTree = "<group>";
@@ -91,6 +90,7 @@
 		6AB57833240D92C200503EDB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				6A4E3D9F241505DA0086A353 /* Helper.swift */,
 				6AD1A25523F856D000C52FF9 /* MemeStructs.swift */,
 			);
 			path = Models;
