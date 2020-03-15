@@ -31,7 +31,8 @@ class SentMemesTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        Helper.showDetailView(indexPath: indexPath, parent: self)
+        let presenter = DetailViewPresenter(indexPath: indexPath, parent: self)
+        presenter.presentDetailView()
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

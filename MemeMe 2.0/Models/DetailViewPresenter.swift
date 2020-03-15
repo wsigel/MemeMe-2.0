@@ -1,16 +1,19 @@
 //
-//  Helper.swift
+//  DetailViewPresenter.swift
 //  MemeMe 2.0
 //
-//  Created by Wolfgang Sigel on 08.03.20.
+//  Created by Wolfgang Sigel on 15.03.20.
 //  Copyright © 2020 Wolfgang Sigel. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class Helper {
-    static func showDetailView(indexPath: IndexPath, parent: UIViewController){
+struct DetailViewPresenter {
+    let indexPath: IndexPath
+    let parent: UIViewController
+    
+    func presentDetailView(){
         let memeDetailVC = parent.storyboard?.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
         let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate

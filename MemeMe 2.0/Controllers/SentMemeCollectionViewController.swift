@@ -25,7 +25,8 @@ class SentMemeCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        Helper.showDetailView(indexPath: indexPath, parent: self)
+        let presenter = DetailViewPresenter(indexPath: indexPath, parent: self)
+        presenter.presentDetailView()
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
