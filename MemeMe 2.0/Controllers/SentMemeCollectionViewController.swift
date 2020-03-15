@@ -20,22 +20,6 @@ class SentMemeCollectionViewController: UICollectionViewController {
         return appDelegate.memes
     }
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.memes.count
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let presenter = DetailViewPresenter(indexPath: indexPath, parent: self)
-        presenter.presentDetailView()
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SentMemeCell", for: indexPath) as! SentMemeCollectionViewCell
-        let sentMeme = self.memes[indexPath.row]
-        cell.SentMemeImageView.image = sentMeme.memedImage
-        return cell
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.reloadData()
@@ -56,5 +40,23 @@ class SentMemeCollectionViewController: UICollectionViewController {
         self.collectionView.collectionViewLayout = sentMemesFlowLayout
         self.collectionView.collectionViewLayout.invalidateLayout()
     }
+}
+
+extension SentMemeCollectionViewController {
     
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.memes.count
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let presenter = DetailViewPresenter(indexPath: indexPath, parent: self)
+        presenter.presentDetailView()
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SentMemeCell", for: indexPath) as! SentMemeCollectionViewCell
+        let sentMeme = self.memes[indexPath.row]
+        cell.SentMemeImageView.image = sentMeme.memedImage
+        return cell
+    }
 }

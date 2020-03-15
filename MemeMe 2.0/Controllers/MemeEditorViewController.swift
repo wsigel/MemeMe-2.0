@@ -79,7 +79,7 @@ class MemeEditorViewController: UIViewController {
             NSAttributedString.Key.strokeColor: UIColor.black,
             NSAttributedString.Key.foregroundColor: UIColor.white,
             NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSAttributedString.Key.strokeWidth: 0
+            NSAttributedString.Key.strokeWidth: -4
         ]
     }
     
@@ -92,8 +92,9 @@ class MemeEditorViewController: UIViewController {
     }
 
     func unsubscribeFromKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self)
+//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc func keyboardWillShow(_ notification:Notification) {
@@ -156,8 +157,7 @@ class MemeEditorViewController: UIViewController {
     }
     
     func generateMemedImage() -> UIImage {
-        topToolbar.isHidden = true
-        bottomToolbar.isHidden = true
+        hideTopAndBottomToolbars(true)
         
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -165,9 +165,13 @@ class MemeEditorViewController: UIViewController {
         let memedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        topToolbar.isHidden = false
-        bottomToolbar.isHidden = false
+        hideTopAndBottomToolbars(false)
         return memedImage
+    }
+    
+    func hideTopAndBottomToolbars(_ hide: Bool){
+        topToolbar.isHidden = hide
+        bottomToolbar.isHidden = hide
     }
     
     func save() {

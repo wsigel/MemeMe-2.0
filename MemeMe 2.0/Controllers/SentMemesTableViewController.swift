@@ -17,6 +17,36 @@ class SentMemesTableViewController: UITableViewController {
         return appDelegate.memes
     }
     
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return self.memes.count
+//    }
+//
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "memeTableViewCell")!
+//        let meme = self.memes[indexPath.row]
+//        cell.imageView?.image = meme.memedImage
+//        cell.textLabel?.text = meme.topText
+//        cell.detailTextLabel?.text = meme.bottomText
+//        return cell
+//    }
+//
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let presenter = DetailViewPresenter(indexPath: indexPath, parent: self)
+//        presenter.presentDetailView()
+//    }
+//
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 240
+//    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+}
+
+extension SentMemesTableViewController {
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.memes.count
     }
@@ -37,10 +67,5 @@ class SentMemesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 240
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
     }
 }
