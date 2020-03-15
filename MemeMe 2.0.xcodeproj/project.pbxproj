@@ -79,8 +79,6 @@
 				6AB57833240D92C200503EDB /* Models */,
 				6AE5F8D7240C3A5000C32ED3 /* Controllers */,
 				6ADFAC0F23F47F89008E7265 /* Delegates */,
-				6A36866D23EC8E1F0053EFDA /* AppDelegate.swift */,
-				6A36866F23EC8E1F0053EFDA /* SceneDelegate.swift */,
 				6A36867623EC8E200053EFDA /* Assets.xcassets */,
 				6A36867B23EC8E200053EFDA /* Info.plist */,
 			);
@@ -109,6 +107,8 @@
 		6ADFAC0F23F47F89008E7265 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
+				6A36866F23EC8E1F0053EFDA /* SceneDelegate.swift */,
+				6A36866D23EC8E1F0053EFDA /* AppDelegate.swift */,
 				6ADFAC1023F4803A008E7265 /* MemeTextFieldDelegate.swift */,
 				6AC9A43123F690410014ECB8 /* MemeImagePickerControllerDelegate.swift */,
 			);

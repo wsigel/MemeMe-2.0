@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+// MARK: Shows the details view of selected Meme; used for table + collection view
+
 struct DetailViewPresenter {
     let indexPath: IndexPath
     let parent: UIViewController
